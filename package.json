@@ -1,17 +1,6 @@
 {
   "name": "nowdraw",
 	"author": "Derek Anderson <derek@mediaupstream.com>",
-	
-	"user": "mediaupstream",
-	"domain": "nowdraw.node",
-	"scripts": {
-		"start": "draw.js"
-	},
-	"repository": {
-		"type": "local",
-		"directory": "/Library/www/sandbox/nodejs/nowdraw"
-	},
-	
   "version": "0.0.1",
   "dependencies": {
 		"ejs": ">= 0.4.3",

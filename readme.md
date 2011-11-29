@@ -1,12 +1,13 @@
-NowDraw - A Real-time drawing app
+NowDraw - A NodeJS Real-time drawing demo
 ======
-Created by **Derek Anderson** / **Media Upstream**  
-*(C) 2011*  
 
-I created `NowDraw` in a couple of hours as an excuse to try out NowJS [http://nowjs.org](http://nowjs.org). It is a bare-bones collaborative drawing application, complete with two drawing tools: `lines` and `clouds` and a `clear` button.  
+I created **NowDraw** in a couple of hours as an excuse to try out NowJS [http://nowjs.org](http://nowjs.org). It is a bare-bones collaborative drawing application, complete with two drawing tools: **lines** and **clouds** and a **clear** button.  
 
 You can demo the application here: [http://nowdraw.mediaupstream.com](http://nowdraw.mediaupstream.com "NowDraw")  
-  
+
+### Preview
+
+![Preview](/assets/preview.png "Preview")  
 
 ### Installation / Usage  
 
