@@ -138,3 +138,22 @@ h3 {
 	position: relative;
 	top: 1px;
 }
+
+
+/* Media Queries for Mobile */
+@media only screen and (max-device-width: 480px) {
+  
+  * {
+    -webkit-user-select: none;
+  }
+  
+  #header {
+    padding:3px;
+	}
+  
+  #appTitle {
+    display:none;
+  }
+  
+  
+}
