@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+	<script type="text/javascript" src="nowjs/now.js"></script>
+	
+	<script type="text/javascript" src="js/paper.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	
+	<link rel="stylesheet" href="css/main.css">
+
+	<title>NOW DRAW :: Realtime Drawing with Node.js + NowJS + Paper.js</title>
+</head>
+<body>
+	<div id="header">
+		<div id="users"></div>
+		<div id="toolbar">
+			<span id="appTitle">NOW DRAW</span>
+			<a href="#" class="button black bigrounded toggle active" data-tool="lineTool">Lines</a>
+		  <a href="#" class="button black bigrounded toggle" data-tool="cloudTool">Clouds</a>
+		  <a href="#" id="clearTool" class="button black bigrounded" data-tool="clearCanvas">Clear</a>
+		</div>
+	</div>
+	
+	<canvas id="draw" resize></canvas>
+</body>
+</html>
