@@ -1,6 +1,5 @@
 {
   "name": "nowdraw",
-	"author": "Derek Anderson <derek@mediaupstream.com>",
   "version": "0.0.1",
   "dependencies": {
 		"ejs": ">= 0.4.3",
