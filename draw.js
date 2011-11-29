@@ -41,8 +41,8 @@ if (process.env.PORT) {
 	}});
 } else {
 	// Development mode, log the server port
-	console.log('=========== development mode ===========');
-	console.log('= Server running at http://127.0.0.1:'+port);
+	console.log('============= development mode =============');
+	console.log(' Server running at http://127.0.0.1:'+port);
 	everyone = nowjs.initialize(app, {"log level": 1});
 }
 

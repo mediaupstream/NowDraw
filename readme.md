@@ -7,7 +7,7 @@ You can demo the application here: [http://nowdraw.mediaupstream.com](http://now
 
 ### Preview
 
-![Preview](/assets/preview.png "Preview")  
+![Preview](https://github.com/mediaupstream/NowDraw/raw/master/assets/preview.png "Preview")  
 
 ### Installation / Usage  
 
