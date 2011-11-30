@@ -1,6 +1,6 @@
 {
   "name": "nowdraw",
-  "version": "0.0.1",
+  "version": "1.2.0",
   "dependencies": {
 		"ejs": ">= 0.4.3",
     "express": ">= 2.4.4",

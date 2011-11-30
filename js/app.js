@@ -51,6 +51,19 @@ window.onload = function() {
 		paper.view.draw();
 	};
 	
+	now.receiveUserCount = function(num){
+	  $('#appTitle b').text(num);
+	};
+	
+	now.connected = function(userId){
+	  now.distributeUserCount();
+	};
+	
+	now.disconnected = function(userId){
+	  now.distributeUserCount();
+	};
+	
+	
 	now.drawPoints = function(user, tool, p){
 
 			switch(tool){

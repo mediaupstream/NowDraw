@@ -7,7 +7,8 @@ var fs = require('fs'),
 		sys = require('sys'),
 		express = require('express'),
 		app = express.createServer(),
-		port = process.env.PORT || 3000;
+		port = process.env.PORT || 3000,
+		users = 0;
 
 // Configure Express (http://expressjs.com)
 app.configure(function(){
@@ -49,11 +50,17 @@ if (process.env.PORT) {
 // What to do when a user connects / disconnects from the app
 nowjs
 	.on('connect', function(){
+	  // Update user count
+	  users++;
 		this.now.userId = this.user.clientId;
+		this.now.connected(this.user.clientId);
 		// console.log('User Connected: '+ this.now.userId);
 	})
 	.on('disconnect', function(){
-		// this.now.userId = this.user.clientId;
+    // Update user count
+	  users--;
+    users = (users < 0) ? 0 : users;
+    everyone.now.disconnected(this.user.clientId);
 		// console.log('DISCONNECTED: '+ this.now.userId);
 });
 
@@ -72,4 +79,12 @@ everyone.now.sendEvent = function(user, tool, points){
  */
 everyone.now.clearCanvas = function(){
 	everyone.now.resetCanvas();
+};
+
+/**
+ *  Update the user count for all connected users
+ *  
+ */
+everyone.now.distributeUserCount = function(){
+  everyone.now.receiveUserCount(users);
 };

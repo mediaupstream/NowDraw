@@ -29,12 +29,21 @@ h3 {
 	margin-left:10px;
 	color: #fff;
 	background-color: #444;
-	
 	-moz-box-shadow: 		-55px 0px 0px 80px #444, -55px 0 15px 82px #444;
 	-webkit-box-shadow: -55px 0px 0px 80px #444, -55px 0 15px 82px #444;
 	box-shadow: 				-55px 0px 0px 80px #444, -55px 0 15px 82px #444;
+	position:relative;
+	text-shadow:2px 2px 2px #000;
 }
-
+#appTitle b {
+  color:#8FE4FE;
+  font-size:13px;
+  font-weight:normal;
+  position:relative;
+  top:-10px;
+  text-shadow:1px 1px 0px #000;
+  font-family:Arial, sans-serif;
+}
 
 #toolbar {
 	position:relative;
