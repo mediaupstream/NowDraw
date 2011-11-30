@@ -8,7 +8,8 @@ var fs = require('fs'),
 		express = require('express'),
 		app = express.createServer(),
 		port = process.env.PORT || 3000,
-		users = 0;
+		users = 0,
+		paper = [];
 
 // Configure Express (http://expressjs.com)
 app.configure(function(){
@@ -53,7 +54,7 @@ nowjs
 	  // Update user count
 	  users++;
 		this.now.userId = this.user.clientId;
-		this.now.connected(this.user.clientId);
+		this.now.connected(this.user.clientId, paper);
 		// console.log('User Connected: '+ this.now.userId);
 	})
 	.on('disconnect', function(){
@@ -70,14 +71,17 @@ nowjs
  *  This is called on the client when a user is done drawing a line
  *  Point data and the tool used are transmitted to the `drawPoints` clientside function
  */
-everyone.now.sendEvent = function(user, tool, points){
-	everyone.exclude([this.user.clientId]).now.drawPoints(user, tool, points);
+everyone.now.sendEvent = function(tool, points, color){
+  var user = this.now.userId;
+  paper.push([user, tool, points, color]);
+	everyone.exclude([this.user.clientId]).now.drawPoints(user, tool, points, color);
 };
 
 /**
  *  clearCanvas - Clears the canvas for everyone.
  */
 everyone.now.clearCanvas = function(){
+  paper = [];
 	everyone.now.resetCanvas();
 };
 

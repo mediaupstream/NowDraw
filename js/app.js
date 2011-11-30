@@ -6,8 +6,6 @@ var lineTool, cloudTool, selected = 'lineTool', User = {}, userId = '';
 window.onload = function() {
 	paper.setup('draw');
 	
-	userId = window.now.userId;
-	
 	var group = new Group();
 	
 	var toolbar = {
@@ -55,8 +53,13 @@ window.onload = function() {
 	  $('#appTitle b').text(num);
 	};
 	
-	now.connected = function(userId){
+	now.connected = function(id, data){
+	  userId = id;
 	  now.distributeUserCount();
+    // draw everything for this user from the `data` passed in
+    $.each(data, function(i, d){
+      now.drawPoints(d[0], d[1], d[2], d[3]);
+    });
 	};
 	
 	now.disconnected = function(userId){
@@ -64,12 +67,14 @@ window.onload = function() {
 	};
 	
 	
-	now.drawPoints = function(user, tool, p){
+	now.drawPoints = function(user, tool, p, color){
 
 			switch(tool){
 				case 'lineTool': {
 					User[user] = {'path': new Path() };
 					User[user].path.style = pathStyle;
+					User[user].path.strokeColor = color;
+					
 					group.addChild(User[user].path);
 					for(var i=0, len=p.length; i<len; i++){
 						var _s = p[i].split('|');
@@ -83,6 +88,8 @@ window.onload = function() {
 				case 'cloudTool': {
 					User[user] = {'path': new Path() };
 					User[user].path.style = pathStyle;
+					User[user].path.strokeColor = color;
+					
 					group.addChild(User[user].path);
 					var _s = p[0].split('|');
 					User[user].path.add({"x": parseInt(_s[0]), "y": parseInt(_s[1])});
@@ -111,7 +118,8 @@ window.onload = function() {
 		// Path.Circle(new Point(120, 50), 35);
 		
 		var hue = event.count * 15;
-		User[userId].path.strokeColor = new HSBColor(hue, 1, 1);
+		var color = new HSBColor(hue, 1, 1);
+		User[userId].path.strokeColor = color;
 		
 		User[userId].path.add(event.point);
 		group.addChild(User[userId].path);
@@ -123,8 +131,9 @@ window.onload = function() {
 			User[userId].path.simplify(10);
 		}
 		points.push(event.point.x +'|'+ event.point.y);
+		var color = User[userId].path.strokeColor.toCssString();
 		// broadcast to NowJS
-		now.sendEvent(userId, selected, points);
+		now.sendEvent(selected, points, color);
 		points.length = 0;
 	};
 	
