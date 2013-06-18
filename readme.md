@@ -7,7 +7,7 @@ _Licensed under The MIT License (http://www.opensource.org/licenses/mit-license.
 
 I built **NowDraw** as an excuse to play around with Node and NowJS [http://nowjs.org](http://nowjs.org). It's a bare-bones collaborative drawing application, complete with two drawing tools: **lines** and **clouds** and a **clear** button. Support for Mobile / iOS included.  
 
-You can demo the application here: [http://draw.mediaupstream.com](http://nowdraw.mediaupstream.com "NowDraw")  
+You can demo the application here: [http://draw.mediaupstream.com](http://draw.mediaupstream.com "NowDraw")  
   
 ---
   
